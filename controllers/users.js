@@ -1,4 +1,4 @@
-import UserSchema from "../models/UserSchema.js";
+import UserSchema from "../models/userSchema.js";
 
 export const createUser = (req, res) => {
   const user = req.body;
