@@ -10,6 +10,16 @@ const getBloodbanks = async (query) => {
   }
 };
 
+const getSpecificBloodbank = async ({ blood_group }) => {
+  try {
+    const bloodbankData = await Bloodbank.find({ blood_group }).lean().exec();
+    return { bloodbankData, success: true };
+  } catch (e) {
+    console.log(e);
+    return { error: e, success: false };
+  }
+};
+
 const addBloodbank = async (data) => {
   try {
     const newBloodbankData = new Bloodbank(data);
@@ -21,4 +31,4 @@ const addBloodbank = async (data) => {
   }
 };
 
-export { getBloodbanks, addBloodbank };
+export { getBloodbanks, addBloodbank, getSpecificBloodbank };

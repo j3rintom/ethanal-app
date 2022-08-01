@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import userRoutes from "./routes/users.js";
 import campaignRoutes from "./routes/campaign.js";
 import bloodbankRoutes from "./routes/bloodbank.js";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(Cors());
 
 app.use("/signup", userRoutes);
+app.use("/auth", authRoutes);
 app.use("/campaigns", campaignRoutes);
 app.use("/bloodbank", bloodbankRoutes);
 
