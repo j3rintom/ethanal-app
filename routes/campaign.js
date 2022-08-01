@@ -10,10 +10,6 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { title, description } = req.body;
-
-  if (!title || !description) req.status(404);
-
   const { success, newCampaign } = await addCampaign(req.body);
   const code = success ? 200 : 400;
   res.status(code).send(newCampaign);

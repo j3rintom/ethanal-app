@@ -5,6 +5,7 @@ import Cors from "cors";
 import bodyParser from "body-parser";
 import userRoutes from "./routes/users.js";
 import campaignRoutes from "./routes/campaign.js";
+import bloodbankRoutes from "./routes/bloodbank.js";
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(Cors());
 
 app.use("/signup", userRoutes);
 app.use("/campaigns", campaignRoutes);
+app.use("/bloodbank", bloodbankRoutes);
 
 const PORT = process.env.PORT || 5000;
 
